@@ -1,29 +1,41 @@
-posicionX = 0
-posicionY = 0
-
-def Movimiento(x,y,end):
-    print('[' + str(x) + ',' + str(y) + ']', end='')
-    if x == 0 and y+1 < end:
-        y += 1
-        return
-
-    if y+1 > end - 1:
-        x += 1
-        return
-
-    x -= 1
-    y += 1
-    print('[' + str(x) + ',' + str(y) + ']', end='')
-    Movimiento(x,y)
+from Posicion import Posicion
 
 
-filas = int(input('ingrese el número de filas'))
-columnas = int(input('ingrese el número de columnas'))
+def MovimientoHaciaArriba(posicion, cantidadFilas):
+
+    puedemoverse = posicion.ValidarMovimientoHaciaArriba(cantidadFilas)
+
+    if puedemoverse is False:
+        print('[' + str(posicion.posicionX) + ',' + str(posicion.posicionY) + ']', end='')
+        return posicion
+
+    posicion.MoverseHaciaArriba()
+
+    print('[' + str(posicion.posicionX) + ',' + str(posicion.posicionY) + ']', end='')
+    MovimientoHaciaArriba(posicion, cantidadFilas)
 
 
+def MovimientoHaciaAbajo(posicion, cantidadColumnas):
 
-for i in range((filas + filas - 2)):
+    puedemoverse = posicion.ValidarMovimientoHaciaAbajo(cantidadColumnas)
+
+    if puedemoverse is False:
+        print('[' + str(posicion.posicionX) + ',' + str(posicion.posicionY) + ']', end='')
+        return posicion
+
+    posicion.MoverseHaciaAbajo()
+
+    print('[' + str(posicion.posicionX) + ',' + str(posicion.posicionY) + ']', end='')
+    MovimientoHaciaAbajo(posicion, cantidadColumnas)
+
+
+filas = int(input('Ingrese el número de filas: '))
+columnas = int(input('Ingrese el número de columnas: '))
+
+posicion_inicial = Posicion(0, 0)
+
+for i in range((filas + filas - 3)):
     if (i % 2) == 0:
-        Movimiento(posicionX,posicionY,columnas)
+        MovimientoHaciaArriba(posicion_inicial, columnas)
     else:
-        Movimiento(posicionY,posicionX,filas)
+        MovimientoHaciaAbajo(posicion_inicial, filas)
