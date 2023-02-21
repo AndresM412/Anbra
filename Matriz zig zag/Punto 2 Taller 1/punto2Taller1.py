@@ -38,7 +38,7 @@ while filas == 0 or filas != columnas:
     columnas = int(input('Ingrese el número de columnas: '))
 
 posicion_inicial = Posicion(0, 0)
-
+print(posicion_inicial)
 for i in range((filas + filas - 2)):
     if (i % 2) == 0:
         MovimientoHaciaArriba(posicion_inicial, columnas)
