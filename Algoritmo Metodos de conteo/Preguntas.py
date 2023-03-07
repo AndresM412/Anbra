@@ -1,3 +1,4 @@
+import Formulas
 class Preguntas:
     Question1= "¿En su problema importa el orden?"
     Question2= "¿Intervienen todos los elementos?"
@@ -10,7 +11,6 @@ class Preguntas:
             break
         else:
             print("Entrada no válida")
-    
     while True:
         answer=input(Question1)
         if answer.lower()=="si":
@@ -20,8 +20,10 @@ class Preguntas:
                 if answer.lower()=="si":
                    print("Permutaciones con repeticion")
                    break
-                elif answer.lower()=="ni":
-                    print("Permutaciones ordinarias")
+                elif answer.lower()=="no":
+                    print("Permutaciones ordinarias\n")
+                    m = int(input("Ingrese el valor de m: "))
+                    Formulas.formulas.permutacion_ordinaria(m)
                     break
                 else:
                     print("Por favor ingrese una respuesta")
@@ -29,9 +31,15 @@ class Preguntas:
                 answer=input(Question3)
                 if answer.lower()=="si":
                     print("Variaciones con repeticion")
+                    m = int(input("Ingrese el valor de m: "))
+                    n = int(input("Ingrese el valor de n: "))
+                    Formulas.formulas.variacion_repite(m,n)
                     break
                 elif answer.lower()=="no":
                     print("Variaciones Ordinarias")
+                    m = int(input("Ingrese el valor de m: "))
+                    n = int(input("Ingrese el valor de n: "))
+                    Formulas.formulas.variacion_ordinaria(m,n)
                     break
                 else:
                     print("Por favor ingrese una respuesta")
@@ -43,9 +51,15 @@ class Preguntas:
                 answer=input(Question3)
                 if answer.lower()== "si":
                     print("Combinaciones con repeticion")
+                    m = int(input("Ingrese el valor de m: "))
+                    n = int(input("Ingrese el valor de n: "))
+                    Formulas.formulas.combinacion_repite(m,n)
                     break
                 elif answer.lower()== "no":
                     print("Combinaciones ordinarias")
+                    m = int(input("Ingrese el valor de m: "))
+                    n = int(input("Ingrese el valor de n: "))
+                    Formulas.formulas.combinacion_ordinaria(m,n)
                     break
                 else:
                     print("Por favor ingrese una respuesta")
