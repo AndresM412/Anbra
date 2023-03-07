@@ -29,5 +29,7 @@ class formulas:
         resultado = factorial(m)
         print(f"El resultado es {resultado}")
         
-    #def permutacion_repite(m,n):
-    
+        
+
+
+            
